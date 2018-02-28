@@ -37,17 +37,17 @@ class Customer {
 
     public String htmlStatement() {
         Enumeration rentals = _rentals.elements();
-        String result = "<Н1>0перации аренды для <ЕМ>" + getName() + "</EM></H1><P>\n";
+        String result = "<Н1>Rentals for <ЕМ>" + getName() + "</EM></H1><P>\n";
         while (rentals.hasMoreElements()) {
             Rental each = (Rental) rentals.nextElement();
-            // показать результаты по каждой аренде
+            // show figures for each rental
             result += each.getMovie().getTitle() +
                     String.valueOf(each.getCharge()) + "<BR>\n";
         }
-        //добавить нижний колонтитул
-        result += "<Р>Ваша задолженность составляет <ЕМ>" +
+        //add footer lines
+        result += "<Р>You owe <ЕМ>" +
                 String.valueOf(getTotalCharge()) + "</EM><P>\n";
-        result += "На этой аренде вы заработали <ЕМ>" +
+        result += "On this rental you own<ЕМ>" +
                 String.valueOf(getTotalFrequentRenterPoints()) + "</ЕМ> очков за активность<Р>";
         return result;
     }
